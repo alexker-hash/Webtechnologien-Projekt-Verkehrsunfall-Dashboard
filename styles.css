@@ -1,0 +1,30 @@
+#Map{
+    border: 5px solid black;
+    width: 500px;
+    height: 400px;
+    padding: 10px;
+    margin-top: 20px;
+    align-self: right;
+    margin-left: 30px;
+}
+#Statistics{
+    border: 5px solid black;
+    width: 300px;
+    height: 400px;
+    padding: 10px;
+    margin-top: 20px;
+}
+#SQL-Tabelle{
+    border: 5px solid black;
+    width: 300px;
+    height: 400px;
+    padding: 10px;
+    margin-top: 20px;
+}
+#StatistikenDiagramme{
+    border: 5px solid black;
+    width: 300px;
+    height: 400px;
+    padding: 10px;
+    margin-top: 20px;
+}
