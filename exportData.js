@@ -5,7 +5,7 @@ document.getElementById("uploadForm").addEventListener("submit", async (event) =
     const formData = new FormData();
     formData.append('csv.datei',fileInput.files);
     try { const response = await fetch('exportData.php', {
-        method: 'GET',
+        method: 'POST',
         body: formData
     });
     const result = await response.json();

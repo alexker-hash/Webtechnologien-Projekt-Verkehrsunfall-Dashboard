@@ -53,3 +53,59 @@ function initMarkers() {
     });
 
 }
+function showDashMarker(myData, map) {
+
+    console.log("jetzt in showDashMarker");
+
+    var markerType = yellowMarker; // Default
+
+    if (myData.dringlichkeit > 2) markerType = greenMarker;
+    if (myData.dringlichkeit < 2) markerType = redMarker;
+
+
+
+    var marker = new L.marker([myData.latitude, myData.longitude], {
+        clickable: true,
+        icon: markerType
+    }).bindPopup(
+        // TODO: Hier die richtigen Feldnamen aus der Datenbank einfügen
+        '<p><b>' + myData.name + '</b><br>' +
+        'Kategorie: ' + myData.kategorie + '<br>' +
+        'Dringlichkeit: ' + myData.dringlichkeit + '<br>' +
+        'Beschreibung: ' + myData.beschreibung + '</p>'
+    ).addTo(markerLayer);
+
+    features.push(marker);
+
+
+}
+function fitBounds() {
+    if (map) {
+        let group = new L.featureGroup(features);
+        map.fitBounds(group.getBounds());
+    }
+
+}
+function showMarker(myData, map) {
+
+    ;
+
+    var markerType = yellowMarker; // Default
+// TODO: Hier die richtigen Feldnamen aus der Datenbank einfügen
+    if (myData.dringlichkeit > 2) markerType = greenMarker;
+    if (myData.dringlichkeit < 2) markerType = redMarker;
+
+    var marker = new L.marker([myData.latitude, myData.longitude], {
+        clickable: true,
+        icon: markerType
+    }).bindPopup(
+        // TODO: Hier die richtigen Feldnamen aus der Datenbank einfügen
+        '<p><b>' + myData.kundename + '</b><br>' +
+        'Kategorie: ' + myData.kategorie + '<br>' +
+        'Dringlichkeit: ' + myData.dringlichkeit + '<br>' +
+        'Beschreibung: ' + myData.problembeschreibung + '</p>'
+    ).addTo(markerLayer);
+
+    features.push(marker);
+    fitBounds();
+}
