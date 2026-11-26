@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="styles.css">
     <script src="dMap.js" defer></script>
     <script src="exportData.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="statistikenDiagramme.js" defer></script>
     <script>onload = function(){
             initMap();
         }</script>
@@ -24,8 +26,51 @@
             <button type="submit">CSV in Datenbank laden</button>
         </form>
     </div>
+
+
+
     <div id="SQL-Tabelle">Beispiel-SQL-Tabelle/AlleErgebnisse</div>
-    <div id="StatistikenDiagramme">Diagramme</div>
+    
+    
+    
+
+    <div id="StatistikenDiagramme">
+        <h2>Statistiken &amp; Diagramme</h2>
+
+        <!-- US-12: Drei Kennzahlen zur Auswahl -->
+        <div id="kennzahlenContainer" class="kennzahlen-bereich">
+            <div class="kennzahl-box">
+                <span class="kennzahl-label">Unfälle insgesamt:</span>
+                <strong id="kpiGesamt">0</strong>
+            </div>
+            <div class="kennzahl-box">
+                <span class="kennzahl-label">Mit Radbeteiligung:</span>
+                <strong id="kpiRad">0</strong>
+            </div>
+            <div class="kennzahl-box">
+                <span class="kennzahl-label">Mit Schwerverletzten:</span>
+                <strong id="kpiSchwerverletzte">0</strong>
+            </div>
+        </div>
+
+        <!-- US-13: Monatliche Entwicklung (Zeitdiagramm) -->
+        <div class="diagramm-box">
+            <h3>Monatliche Entwicklung</h3>
+            <canvas id="zeitDiagramm"></canvas>
+        </div>
+
+        <!-- US-14 & US-15: Verteilung der Unfallkategorien (Balkendiagramm + Klick-Filter) -->
+        <div class="diagramm-box">
+            <h3>Verteilung der Unfallkategorien</h3>
+            <canvas id="kategorieDiagramm"></canvas>
+            <div id="diagrammFilterSteuerung">
+                <p id="diagrammFilterInfo">Aktiver Kategoriefilter: keiner</p>
+                <button type="button" id="resetDiagrammFilterBtn" onclick="resetKategorieFilter()" disabled>
+                    Kategoriefilter entfernen
+                </button>
+            </div>
+        </div>
+    </div>
 
     
 </body>
